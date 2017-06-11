@@ -21,7 +21,7 @@ export class AppContainer extends Component {
     }
 
     return (
-      <div className={styles.container} />
+      <div className={styles.container}>Ocean Video Webapp</div>
     );
   }
 }

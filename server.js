@@ -8,6 +8,13 @@ const dist = path.join(__dirname, 'dist');
 
 app.use(express.static(dist));
 
+app.get('/api/food', (req, res) => {
+  res.json({
+    'status': 'ok',
+    'message': 'Ocean Video Api'
+  });
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(dist, 'index.html'));
 });
