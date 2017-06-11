@@ -1,10 +1,8 @@
-# React
+# Ocean-Video-WebApp
 
-[![Build Status](https://travis-ci.org/werein/react.svg)](https://travis-ci.org/werein/react)[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/werein/react?branch=master&svg=true)](https://ci.appveyor.com/project/jirikolarik/react) [![Code Climate](https://codeclimate.com/github/werein/react/badges/gpa.svg)](https://codeclimate.com/github/werein/react)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Extremely simple boilerplate, __easiest you can find__, for React application including all the necessary tool
+Fork from https://github.com/werein/react.git, Extremely simple boilerplate, __easiest you can find__, for React application including all the necessary tool
 
 * React
 * Redux
@@ -24,34 +22,6 @@ And optional (just install missing dependencies):
 * Surge - `npm i surge -g`
 
 __Also take a look [here](http://github.com/werein/react-native) for also extremely simple React Native boilerplate__
-
-## Installation
-
-All you need to do is clone this repository
-```
-git clone https://github.com/werein/react.git
-```
-
-### Keep it up to date
-
-Track this repo
-
-```
-git remote add upstream https://github.com/werein/react.git
-```
-
-Get the latest version and apply onto your stack
-
-```
-git fetch upstream
-git merge upstream/master
-```
-
-## Running
-Application has very few dependencies, so it’s most probably very easy to understand when you scan through the code, but there is at least few steps you should know
-
-### Start front-end React application
-Application is divided into two parts. One is pure React front-end, powered by `webpack-dev-server` in development mode.
 
 To start this application run command bellow and open your app on `http://localhost:8080`
 
@@ -105,6 +75,3 @@ Heroku works out of the box, just use "deploy to heroku" button
 
 ## Tools
 This project works with ReduxDevtool extension for chrome. [Read more](https://github.com/zalmoxisus/redux-devtools-extension)
-
-## License
-MIT
