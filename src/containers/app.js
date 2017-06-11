@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadApp } from 'actions/app';
+import { loadApp, fetchApi } from 'actions/app';
 import styles from './app.css';
 
 type Props = {
   dispatch: () => void,
-  loaded: boolean
-}
+  loaded: boolean,
+  content: "Initial"
+};
 
 export class AppContainer extends Component {
   componentDidMount() {
     this.props.dispatch(loadApp());
+    this.props.dispatch(fetchApi({
+      'param': 'hello'
+    }));
   }
 
   props: Props;
@@ -21,14 +25,18 @@ export class AppContainer extends Component {
     }
 
     return (
-      <div className={styles.container}>Ocean Video Webapp</div>
+        <div>
+            <div className={styles.container}>Ocean Video Webapp</div>
+        <div className={styles.container}>{this.props.content}</div>
+        </div>
     );
   }
 }
 
 function mapStateToProperties(state) {
   return {
-    loaded: state.app.loaded
+    loaded: state.app.loaded,
+    content: state.app.content
   };
 }
 

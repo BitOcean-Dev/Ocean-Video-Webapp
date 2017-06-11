@@ -8,10 +8,10 @@ const dist = path.join(__dirname, 'dist');
 
 app.use(express.static(dist));
 
-app.get('/api/food', (req, res) => {
+app.get('/api/content', (req, res) => {
   res.json({
     'status': 'ok',
-    'message': 'Ocean Video Api'
+    'content': 'Ocean Video Api'
   });
 });
 
