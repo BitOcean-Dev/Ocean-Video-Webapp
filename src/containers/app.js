@@ -24,12 +24,12 @@ export class AppContainer extends Component {
     if (!this.props.loaded) {
       return null;
     }
-
+    // TODO: talk to server, pass authToken to Player. 
     return (
         <div>
-            <div className={styles.container}>Ocean Video Webapp</div>
+           <div className={styles.container}>Ocean Video Webapp</div>
            <div className={styles.container}>{this.props.content}</div>
-        <Player />
+        <Player /> 
         </div>
     );
   }
