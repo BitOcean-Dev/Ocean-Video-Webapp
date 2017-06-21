@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadApp, fetchApi } from 'actions/app';
 import styles from './app.css';
+import Player from './player';
 
 type Props = {
   dispatch: () => void,
@@ -27,7 +28,8 @@ export class AppContainer extends Component {
     return (
         <div>
             <div className={styles.container}>Ocean Video Webapp</div>
-        <div className={styles.container}>{this.props.content}</div>
+           <div className={styles.container}>{this.props.content}</div>
+        <Player />
         </div>
     );
   }
