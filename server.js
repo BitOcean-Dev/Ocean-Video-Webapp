@@ -18,10 +18,10 @@ app.get('/api/content', (req, res) => {
   });
 });
 
-app.get('/api/authToken/:id', (req, res) => {
+app.get('/api/streamUrl/:id', (req, res) => {
   res.json({
     'status': 'ok',
-    'token': generateToken(req.params.id)
+    'url': playListUrl(generateToken(req.params.id))
   });
 });
 
@@ -30,6 +30,8 @@ app.get('*', (req, res) => {
 });
 
 const KEY = 'defaultpassword';
+
+var playListUrl = (authToken) => `http://153.126.148.104:8081/demo/9784198810344-2.mp4/playlist.m3u8?wmsAuthSign=${authToken}`
 
 function generateToken(id) {
   let today = moment().format('M/D/YYYY h:m:s A');

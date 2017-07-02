@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadApp, fetchApi } from 'actions/app';
+import { loadApp, fetchApi, fetchStreamUrl } from 'actions/app';
 import styles from './app.css';
 import Player from './player';
 
@@ -15,6 +15,9 @@ export class AppContainer extends Component {
     this.props.dispatch(loadApp());
     this.props.dispatch(fetchApi({
       'param': 'hello'
+    }));
+    this.props.dispatch(fetchStreamUrl({
+      'params': 'TODO'
     }));
   }
 

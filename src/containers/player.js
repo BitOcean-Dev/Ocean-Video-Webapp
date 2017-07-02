@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
 import ReactJWPlayer from 'react-jw-player';
+import { connect } from 'react-redux';
 
+class OceanPlayer extends Component {
 
-const Player = ({authToken}) => (
-  <div>
-    <div>This is Player</div>
-    <ReactJWPlayer
-  playerId='playerid'
-  playerScript='https://content.jwplatform.com/libraries/YKZx5RfW.js'
-  playlist={playListUrl(authToken)}
-    />
-  </div>
-);
+  props: {
+    loaded: false,
+    url: ''
+  };
 
-var playListUrl = (authToken) => `http://153.126.148.104:8081/demo/9784198810344-2.mp4/playlist.m3u8?wmsAuthSign=${authToken}`
+  render() {
+    let status = this.props.status;
+    if (status == 'loaded') {
+      return <div>
+        <div>This is Player</div>
+        <ReactJWPlayer
+      playerId='playerid'
+      playerScript='https://content.jwplatform.com/libraries/YKZx5RfW.js'
+      playlist={this.props.streamUrl} />
+        </div>;
+    } else if (status == 'initial') {
+      return <div>Loading Player</div>;
+    } else {
+      return <div>Error</div>;
+    }
+  }
+}
 
-export default Player;
+function mapStateToProperties(state) {
+  return {
+    status: state.player.status,
+    streamUrl: state.player.url
+  };
+}
+
+export default connect(mapStateToProperties)(OceanPlayer);

@@ -1,4 +1,5 @@
 import { APP_LOAD, API_RESPONSE_RECEIVED } from 'constants/action-types';
+import { combineReducers } from 'redux';
 
 const initialState = {
   loaded: false,

@@ -2,4 +2,8 @@ export const APP_LOAD = 'APP_LOAD';
 export const API_REQUEST = 'API_REQUEST';
 export const API_RESPONSE_RECEIVED = 'API_RESPONSE_RECEIVED';
 
+export const STREAM_URL_REQUEST = "STREAM_URL_REQUEST";
+export const STREAM_URL_RESPONSE = "STREAM_URL_RESPONSE";
+export const STREAM_URL_ERROR = 'STREAM_URL_ERROR';
+
 export default { APP_LOAD };
