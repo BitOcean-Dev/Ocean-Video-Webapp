@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadApp, fetchApi, fetchStreamUrl } from 'actions/app';
+import { loadApp, fetchApi } from 'actions/app';
 import styles from './app.css';
-import Player from './player';
 
 type Props = {
   dispatch: () => void,
@@ -16,9 +15,6 @@ export class AppContainer extends Component {
     this.props.dispatch(fetchApi({
       'param': 'hello'
     }));
-    this.props.dispatch(fetchStreamUrl({
-      'params': 'TODO'
-    }));
   }
 
   props: Props;
@@ -29,11 +25,10 @@ export class AppContainer extends Component {
     }
     // TODO: talk to server, pass authToken to Player. 
     return (
-        <div>
-           <div className={styles.container}>Ocean Video Webapp</div>
-           <div className={styles.container}>{this.props.content}</div>
-        <Player /> 
-        </div>
+      <div>
+        <div className={styles.container}>Ocean Video Webapp</div>
+        <div className={styles.container}>{this.props.content}</div>
+      </div>
     );
   }
 }
