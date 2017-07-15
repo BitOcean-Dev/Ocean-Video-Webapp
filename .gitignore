@@ -6,3 +6,7 @@ dist
 
 # Ignore logs
 npm-debug.log
+
+# Intellij
+.idea
+ocean-video-webapp.iml
