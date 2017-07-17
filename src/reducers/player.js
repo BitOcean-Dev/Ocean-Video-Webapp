@@ -8,7 +8,7 @@ const initialState = {
 export default function player(state=initialState, action) {
   switch (action.type) {
     case STREAM_URL_REQUEST:
-      return { ...state, statufs: 'loading' };
+      return { ...state, status: 'loading' };
     case STREAM_URL_RESPONSE:
       return {
         ...state,

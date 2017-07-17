@@ -13,7 +13,8 @@ module.exports = {
   context: path.join(__dirname, 'src'),
   entry: './index',
   output: {
-    filename: '[hash].js'
+    filename: '[hash].js',
+    publicPath: '/'
   },
   devtool: 'source-map',
   plugins: [htmlWebpackPlugin, definePlugin],

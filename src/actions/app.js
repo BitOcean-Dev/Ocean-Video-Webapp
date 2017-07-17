@@ -1,4 +1,4 @@
-import { APP_LOAD, API_REQUEST, API_RESPONSE_RECEIVED, STREAM_URL_REQUEST, STREAM_URL_RESPONSE, STREAM_URL_ERROR } from 'constants/action-types';
+import { APP_LOAD, API_REQUEST, API_RESPONSE_RECEIVED } from 'constants/action-types';
 
 export const loadApp = () => {
   return {

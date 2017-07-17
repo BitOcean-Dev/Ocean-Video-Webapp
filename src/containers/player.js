@@ -14,6 +14,7 @@ class OceanPlayer extends Component {
   }
 
   props: {
+    vid: '',
     loaded: false,
     url: ''
   };
@@ -36,15 +37,7 @@ class OceanPlayer extends Component {
   }
 
   render() {
-      return <Grid>
-        <Row>
-          <Col xs={2} md={2}/>
-          <Col xs={8} md={8}>
-            {this.getPlayerDom()}
-          </Col>
-          <Col xs={2} md={2}/>
-        </Row>
-      </Grid>
+      return <di>{this.getPlayerDom()}</di>;
   }
 }
 
