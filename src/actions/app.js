@@ -1,4 +1,4 @@
-import { APP_LOAD, API_REQUEST, API_RESPONSE_RECEIVED } from 'constants/action-types';
+import { APP_LOAD, API_REQUEST, API_RESPONSE_RECEIVED } from "constants/action-types";
 
 export const loadApp = () => {
   return {

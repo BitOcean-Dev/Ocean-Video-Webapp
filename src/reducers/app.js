@@ -1,5 +1,5 @@
-import { APP_LOAD, API_RESPONSE_RECEIVED } from 'constants/action-types';
-import { combineReducers } from 'redux';
+import { APP_LOAD, API_RESPONSE_RECEIVED } from "constants/action-types";
+import { combineReducers } from "redux";
 
 const initialState = {
   loaded: false,
@@ -17,5 +17,6 @@ export default function app(state = initialState, action) {
       };
     default:
       return state;
-  };
+  }
+  ;
 };

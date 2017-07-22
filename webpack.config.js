@@ -38,7 +38,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      '/api/*': 'http://localhost:8181'
+      '/interface/v1/': {
+        target: 'https://payment.bitocean.com/oceancast/',
+        secure: false
+      }
     }
   }
 };

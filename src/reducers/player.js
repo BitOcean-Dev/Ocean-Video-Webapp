@@ -1,11 +1,11 @@
-import { STREAM_URL_REQUEST, STREAM_URL_RESPONSE }  from 'constants/action-types';
+import { STREAM_URL_REQUEST, STREAM_URL_RESPONSE } from "constants/action-types";
 
 const initialState = {
   status: 'initial',
   url: ''
 };
 
-export default function player(state=initialState, action) {
+export default function player(state = initialState, action) {
   switch (action.type) {
     case STREAM_URL_REQUEST:
       return { ...state, status: 'loading' };
@@ -16,8 +16,9 @@ export default function player(state=initialState, action) {
         url: action.url
       };
     default:
-      return state;
-  };
+        return state;
+  }
+  ;
 }
 
 

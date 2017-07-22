@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
-import ReactJWPlayer from 'react-jw-player';
-import { connect } from 'react-redux';
-import { fetchStreamUrl } from 'actions/player';
-import { Grid, Row, Col } from 'react-bootstrap';
+import React, { Component } from "react";
+import ReactJWPlayer from "react-jw-player";
+import { connect } from "react-redux";
+import { fetchStreamUrl } from "actions/player";
+import { Grid, Row, Col } from "react-bootstrap";
+
+type
+Props = {
+  vid: any,
+  loaded: boolean,
+  url: any
+};
 
 
 class OceanPlayer extends Component {
@@ -13,11 +20,7 @@ class OceanPlayer extends Component {
     }));
   }
 
-  props: {
-    vid: '',
-    loaded: false,
-    url: ''
-  };
+  props:Props;
 
   getPlayerDom() {
     let status = this.props.status;
@@ -25,10 +28,10 @@ class OceanPlayer extends Component {
       return <div>
         <div>Ocean Player</div>
         <ReactJWPlayer
-      playerId='playerid'
-      playerScript='https://content.jwplatform.com/libraries/YKZx5RfW.js'
-      playlist={this.props.streamUrl} />
-        </div>;
+          playerId='playerid'
+          playerScript='https://content.jwplatform.com/libraries/YKZx5RfW.js'
+          playlist={this.props.streamUrl}/>
+      </div>;
     } else if (status == 'initial') {
       return <div>Loading Player</div>;
     } else {
@@ -37,7 +40,7 @@ class OceanPlayer extends Component {
   }
 
   render() {
-      return <di>{this.getPlayerDom()}</di>;
+    return <di>{this.getPlayerDom()}</di>;
   }
 }
 

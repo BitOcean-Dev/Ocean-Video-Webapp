@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { loadApp, fetchApi } from 'actions/app';
-import styles from './app.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadApp, fetchApi } from "actions/app";
+import styles from "./app.css";
 
-type Props = {
+type
+Props = {
   dispatch: () => void,
   loaded: boolean,
   content: "Initial"
@@ -17,7 +18,7 @@ export class AppContainer extends Component {
     }));
   }
 
-  props: Props;
+  props:Props;
 
   render() {
     if (!this.props.loaded) {
