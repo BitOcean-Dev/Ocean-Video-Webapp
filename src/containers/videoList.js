@@ -31,7 +31,7 @@ class VideoList extends React.Component {
 
 function dataToVideoList(list) {
   return list.map(
-    (video) => <VideoCell vid={video.vid} key={video.vid} name={video.name} price={video.price} imageUrl={video.imageUrl} describe={video.describe}/>
+    (video) => <VideoCell vid={video.vid} key={video.vid} name={video.name} price={video.price} imageUrl={video.link} describe={video.describe}/>
   );
 }
 

@@ -44,28 +44,37 @@ module.exports = {
       { test: /\.less$/, loader: `${stylesheetsLoader}'!less` },
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.png$/, loader: "url-loader?mimetype=image/png" },
-        {
-            test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-            // loader: "url?limit=10000&mimetype=application/font-woff"
-            loader: "file-loader"
-        }, {
-            test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url-loader?limit=10000&mimetype=application/font-woff"
-        }, {
-            test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url-loader?limit=10000&mimetype=application/octet-stream"
-        }, {
-            test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "file-loader"
-        }, {
-            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            loader: "url-loader?limit=10000&mimetype=image/svg+xml"
-        }
+      {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      }, {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+      }, {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file-loader"
+      }, {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+      }
     ]
   },
   devServer: {
     historyApiFallback: true,
     proxy: {
+      '/api/v1/': {
+        target: 'http://188.166.226.189:8000/',
+        secure: false,
+        changeOrigin: true
+      },
+      '/static/img': {
+        target: 'http://188.166.226.189:8000/',
+        secure: false,
+        changeOrigin: true
+      },
       '/interface/v1/': {
         target: 'https://payment.bitocean.com/oceancast/',
         secure: false
