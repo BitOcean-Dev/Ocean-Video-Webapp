@@ -8,6 +8,10 @@ import { fetchVideoList } from 'actions/videoList';
 
 class VideoList extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchVideoList());
   }
@@ -43,7 +47,7 @@ function dataToVideoTable(list, colPerRow) {
   const addRowToRows = (row, rows) => {
     rows.push(
       <tr>{row}</tr>
-    )
+    );
   };
 
   const rows = [];
@@ -51,17 +55,17 @@ function dataToVideoTable(list, colPerRow) {
 
   let curr = 0;
   list.forEach((video)=> {
-    row.push(<td>
+    row.push(<td key={curr}>
       <VideoCell vid={video.vid} key={video.vid} name={video.name} price={video.price} imageUrl={video.imageUrl}/>
     </td>);
     curr++;
     if (curr == colPerRow) {
       addRowToRows(row, rows);
       row = [];
-      curr = 0
+      curr = 0;
     }
   });
-  rows.push(<tr>{row}</tr>);
+  rows.push(<tr key={rows.length}>{row}</tr>);
   return rows;
 }
 

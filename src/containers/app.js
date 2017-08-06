@@ -4,7 +4,7 @@ import { loadApp, fetchApi } from 'actions/app';
 import OptionBar from './optionBar';
 import VideoList from './videoList';
 import styles from './app.css';
-
+import SideSection from './sideSection';
 
 type Props = {
   dispatch: () => void,
@@ -28,15 +28,14 @@ export class AppContainer extends Component {
     }
     // TODO: talk to server, pass authToken to Player.
     return (
-
-       <div className="container">
-         <div class="row-fluid" >
-         <div class="span9 main-section">
-         <div className={styles.container}>Ocean Video Webapp</div>
-
+      <div className="container">
+        <div className="row-fluid" >
+          <div className="span9 main-section">
+            <div className={styles.container}>Ocean Video Webapp</div>
             <VideoList />
-         </div>
-         </div>
+          </div>
+          <SideSection />
+        </div>
       </div>
     );
   }
