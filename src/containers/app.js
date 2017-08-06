@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadApp, fetchApi } from 'actions/app';
+import OptionBar from './optionBar';
+import VideoList from './videoList';
 import styles from './app.css';
+
 
 type Props = {
   dispatch: () => void,
@@ -23,11 +26,17 @@ export class AppContainer extends Component {
     if (!this.props.loaded) {
       return null;
     }
-    // TODO: talk to server, pass authToken to Player. 
+    // TODO: talk to server, pass authToken to Player.
     return (
-      <div>
-        <div className={styles.container}>Ocean Video Webapp</div>
-        <div className={styles.container}>{this.props.content}</div>
+
+       <div className="container">
+         <div class="row-fluid" >
+         <div class="span9 main-section">
+         <div className={styles.container}>Ocean Video Webapp</div>
+
+            <VideoList />
+         </div>
+         </div>
       </div>
     );
   }
