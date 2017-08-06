@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router";
-import { Grid, Row, Col, Table } from "react-bootstrap";
-import VideoCell from "./VideoCell";
-import { fetchVideoList } from "actions/videoList";
-
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { Grid, Row, Col, Table } from 'react-bootstrap';
+import VideoCell from './VideoCell';
+import OptionBar from './optionBar';
+import { fetchVideoList } from 'actions/videoList';
 
 class VideoList extends React.Component {
 
@@ -19,20 +19,24 @@ class VideoList extends React.Component {
 
   render() {
     var videoTable = dataToVideoTable(this.props.data, 4);
-    return <Grid>
-      <Row>
-        <Col xs={1} md={1}/>
-        <Col xs={10} md={10}>
-          <Table>
-            <tboby>
-              {videoTable}
-            </tboby>
-          </Table>
-        </Col>
-        <Col xs={1} md={1}/>
-      </Row>
-    </Grid>
-  }
+    return (
+      <div>
+        <OptionBar />
+        <Grid>
+          <Row>
+            <Col xs={1} md={1}/>
+            <Col xs={10} md={10}>
+              <Table>
+                <tboby>
+                  {videoTable}
+                </tboby>
+              </Table>
+            </Col>
+            <Col xs={1} md={1}/>
+          </Row>
+        </Grid>
+      </div>);
+    }
 }
 
 function dataToVideoTable(list, colPerRow) {
