@@ -8,10 +8,6 @@ import { fetchVideoList } from 'actions/videoList';
 
 class VideoList extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.dispatch(fetchVideoList());
   }
@@ -22,51 +18,21 @@ class VideoList extends React.Component {
   };
 
   render() {
-    var videoTable = dataToVideoTable(this.props.data, 4);
     return (
-      <div>
+      <div className="row-fluid" id="playlistContainer">
         <OptionBar />
-        <Grid>
-          <Row>
-            <Col xs={1} md={1}/>
-            <Col xs={10} md={10}>
-              <Table>
-                <tboby>
-                  {videoTable}
-                </tboby>
-              </Table>
-            </Col>
-            <Col xs={1} md={1}/>
-          </Row>
-        </Grid>
-      </div>);
-    }
+        <ul className="thumbnails" id="playlist">
+          {dataToVideoList(this.props.data)}
+        </ul>
+      </div>
+    );
+  }
 }
 
-function dataToVideoTable(list, colPerRow) {
-  const addRowToRows = (row, rows) => {
-    rows.push(
-      <tr>{row}</tr>
-    );
-  };
-
-  const rows = [];
-  let row = [];
-
-  let curr = 0;
-  list.forEach((video)=> {
-    row.push(<td key={curr}>
-      <VideoCell vid={video.vid} key={video.vid} name={video.name} price={video.price} imageUrl={video.imageUrl}/>
-    </td>);
-    curr++;
-    if (curr == colPerRow) {
-      addRowToRows(row, rows);
-      row = [];
-      curr = 0;
-    }
-  });
-  rows.push(<tr key={rows.length}>{row}</tr>);
-  return rows;
+function dataToVideoList(list) {
+  return list.map(
+    (video) => <VideoCell vid={video.vid} key={video.vid} name={video.name} price={video.price} imageUrl={video.imageUrl} describe={video.describe}/>
+  );
 }
 
 function mapStateToProperties(state) {

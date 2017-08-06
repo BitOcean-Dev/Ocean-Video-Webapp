@@ -13,6 +13,7 @@ type Props = {
 };
 
 export class AppContainer extends Component {
+
   componentDidMount() {
     this.props.dispatch(loadApp());
     this.props.dispatch(fetchApi({
