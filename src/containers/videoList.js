@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { Grid, Row, Col, Table } from 'react-bootstrap';
 import VideoCell from './VideoCell';
 import OptionBar from './optionBar';
+import Pagination from './pagination';
 import { fetchVideoList } from 'actions/videoList';
 
 class VideoList extends React.Component {
@@ -19,11 +20,14 @@ class VideoList extends React.Component {
 
   render() {
     return (
-      <div className="row-fluid" id="playlistContainer">
+      <div>
         <OptionBar />
-        <ul className="thumbnails" id="playlist">
-          {dataToVideoList(this.props.data)}
-        </ul>
+        <div className="row-fluid" id="playlistContainer">
+          <ul className="thumbnails" id="playlist">
+            {dataToVideoList(this.props.data)}
+          </ul>
+        </div>
+        <Pagination />
       </div>
     );
   }
