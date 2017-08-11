@@ -6,7 +6,6 @@ import Layout from "containers/layout";
 import App from "containers/app";
 import VideoPage from "containers/videoPage";
 import VideoList from "containers/videoList";
-import SignIn from "containers/signInPage";
 
 const routes = (
   <ConnectedRouter history={history}>
@@ -15,7 +14,6 @@ const routes = (
         <Route exact path="/" component={App}/>
         <Route exact path="/videos" component={VideoList}/>
         <Route exact path="/videos/:vid" component={VideoPage}/>
-        <Route exact path="/signin" component={SignIn}/>
       </Switch>
     </Layout>
   </ConnectedRouter>
