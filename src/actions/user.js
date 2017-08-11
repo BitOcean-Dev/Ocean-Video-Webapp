@@ -31,7 +31,7 @@ export function signInRequest(params) {
       .then(res => res.json())
       .then(json => dispatch(signInSuccess(json)))
       .catch(json => dispatch(signInError(json)));
-  }
+  };
 }
 
 

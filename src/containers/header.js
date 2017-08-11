@@ -1,4 +1,5 @@
 import { Navbar, Nav, MenuItem, NavDropdown, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const navibar = () => (
@@ -35,7 +36,7 @@ const navibar = () => (
               </li>
             </ul>
          <p className="navbar-text pull-right">
-            <a href="login.htm" className="navbar-link">login</a> or <a href="register.htm"   className="navbar-link">register</a>
+            <Link to="/login" className="navbar-link">login</Link> or <Link to="/register" className="navbar-link">register</Link>
             </p>
           </div>
         </div>

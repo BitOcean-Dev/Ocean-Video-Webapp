@@ -27,7 +27,7 @@ export function fetchVideoList(params) {
   return dispatch => {
     dispatch(videoListRequest(params));
     // TODO fix this with param from url
-    return fetch(`/api/v1/video/videolist/`)
+    return fetch(`/api/v1/video/video_list/`)
       .then(response => response.json())
       .then(json => dispatch(videoListResponse(json)))
       .catch(error => dispatch(videoListError(error)));

@@ -1,20 +1,39 @@
 import React from 'react';
+import { connect } from "react-redux";
+import LoginForm from './loginForm.js';
+import { signInRequest } from "actions/user";
 
-const userInfo = () => (
-  <div>
-    <div className="module-top"><i className="icon-lock"></i> Quick Login</div>
-    <div className="module" id="quickLogin"></div>
-    <form className="form-signin" action="" method="post">
-      <fieldset>
-        <label className="label-main">Username</label>
-        <input name="miniusername" className="span10" id="miniusername" type="text" />
-        <label className="label-main">Password</label>
-        <input name="minipassword" className="span10" id="minipassword"  type="password" />
-        <p><label className="checkbox"><input type="checkbox" />remember me</label></p>
-        <button name="send" type="submit" value="Submit"  className="btn btn-small">Login</button>
-      </fieldset>
-    </form>
-  </div>
-);
+type
+Props = {
+  signedIn: boolean,
+  dispatch: () => any
+};
 
-export default userInfo;
+class UserInfo extends React.Component {
+  props: Props;
+
+  handleSubmit = (values) => {
+    this.props.dispatch(signInRequest({
+      account: values.miniusername,
+      password: values.minipassword
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        <div className="module-top"><i className="icon-lock"></i> Quick Login</div>
+        <div className="module" id="quickLogin"></div>
+        <LoginForm onSubmit={ this.handleSubmit }/>
+      </div>
+    );
+  }
+}
+
+function mapStateToProperties(state) {
+  return {
+    signedIn: state.user.signedIn
+  };
+}
+
+export default connect(mapStateToProperties)(UserInfo);

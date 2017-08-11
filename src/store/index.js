@@ -5,7 +5,7 @@ import { compose, createStore, combineReducers, applyMiddleware } from "redux";
 import { routerMiddleware, connectRouter } from "connected-react-router";
 import * as reducers from "reducers";
 import { createLogger } from "redux-logger";
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
 // Redux utility functions
 // Import all reducers
